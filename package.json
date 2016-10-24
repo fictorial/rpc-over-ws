@@ -1,0 +1,13 @@
+{
+  "name": "rpc-over-ws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": ["RPC", "JSON", "WebSockets"],
+  "author": "Brian Hammond <brian@fictorial.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.16.4",
+    "ws": "^1.1.1"
+  }
+}
