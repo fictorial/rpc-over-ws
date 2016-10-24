@@ -7,8 +7,8 @@ A simple RPC-over-WebSockets server
 ## Usage
 
     require('rpc-over-ws')({
-      greet: function ({name} = {name: 'anon'}) {
-        return new Promise(resolve => resolve(`Hello, ${name}`))
+      greet: function ({name}) {
+        return new Promise(resolve => resolve(`Hello, ${name || 'anon'}`))
       }
     })
 
