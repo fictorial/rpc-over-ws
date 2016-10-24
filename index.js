@@ -87,6 +87,7 @@ function createServer(handlers, options = { port: 8080 }) {
         client.ping()
       }
     }, pingTimeout)
+    client.on('pong', () => pings = 0)
 
     client.once('close', () => {
       clearInterval(pingInterval)
