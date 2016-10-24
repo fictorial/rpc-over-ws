@@ -1,6 +1,6 @@
 {
   "name": "rpc-over-ws",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "index.js",
   "keywords": ["RPC", "JSON", "WebSockets"],
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rpc-over-ws.git"
+    "url": "https://github.com/fictorial/rpc-over-ws.git"
   },
-  "homepage": "https://github.com/rpc-over-ws.git",
+  "homepage": "https://github.com/fictorial/rpc-over-ws.git",
   "bugs": {
-    "url": "https://github.com/rpc-over-ws/issues"
+    "url": "https://github.com/fictorial/rpc-over-ws/issues"
   }
 }
