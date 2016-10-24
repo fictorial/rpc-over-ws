@@ -9,5 +9,13 @@
   "dependencies": {
     "lodash": "^4.16.4",
     "ws": "^1.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpc-over-ws.git"
+  },
+  "homepage": "https://github.com/rpc-over-ws.git",
+  "bugs": {
+    "url": "https://github.com/rpc-over-ws/issues"
   }
 }
