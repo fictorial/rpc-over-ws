@@ -72,7 +72,7 @@ function createServer(handlers, options = { port: 8080 }) {
           }
         })
         .catch(error => {
-          const payload = { rpc, result }
+          const payload = { rpc, error }
           if (!_.isUndefined(message.id))
             payload.id = message.id
 
