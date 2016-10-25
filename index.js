@@ -24,6 +24,8 @@ function createServer(handlers, options = { port: 8080 }) {
     emitter.emit('client-connect', client)
 
     client.on('message', message => {
+      emitter.emit('client-raw-message', client, message)
+
       try {
         message = JSON.parse(message)
       } catch (error) {
@@ -31,8 +33,6 @@ function createServer(handlers, options = { port: 8080 }) {
         client.close()
         return
       }
-
-      emitter.emit('client-raw-message', client, message)
 
       const id = message.id
       const rpc = _.trim(message.rpc || '')
