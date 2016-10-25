@@ -19,6 +19,8 @@ function createServer(handlers, options = { port: 8080 }) {
   server.on('listening', () => emitter.emit('server-ready', server))
 
   server.on('connection', client => {
+    client.remoteIP = client.upgradeReq.connection.remoteAddress
+
     emitter.emit('client-connect', client)
 
     client.on('message', message => {
