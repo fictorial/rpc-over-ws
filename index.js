@@ -32,7 +32,7 @@ function createServer(handlers, options = { port: 8080 }) {
 
       emitter.emit('client-raw-message', client, message)
 
-      const id = _.isUndefined(message.id) ? -1 : message.id
+      const id = message.id
       const rpc = _.trim(message.rpc || '')
       const args = message.args || {}
 
@@ -57,7 +57,11 @@ function createServer(handlers, options = { port: 8080 }) {
           }
 
           if (result) {
-            client.send(JSON.stringify({ id, rpc, result }), error => {
+            const payload = { rpc, result }
+            if (!_.isUndefined(message.id))
+              payload.id = message.id
+
+            client.send(JSON.stringify(payload), error => {
               if (error) {
                 emitter.emit('client-io-error', client, error)
                 client.close()
@@ -66,7 +70,11 @@ function createServer(handlers, options = { port: 8080 }) {
           }
         })
         .catch(error => {
-          client.send(JSON.stringify({ id, rpc, error }), error => {
+          const payload = { rpc, result }
+          if (!_.isUndefined(message.id))
+            payload.id = message.id
+
+          client.send(JSON.stringify(payload), error => {
             if (error) {
               emitter.emit('client-io-error', client, error)
               client.close()
