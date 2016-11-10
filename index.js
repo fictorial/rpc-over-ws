@@ -1,6 +1,7 @@
 const EventEmitter = require('events')
 const WebSocketServer = require('ws').Server
 const _ = require('lodash')
+const isPromise = require('is-promise')
 
 function createServer(handlers, options = { port: 8080 }) {
   if (_.isEmpty(handlers) || !_.isObject(handlers))
@@ -49,7 +50,7 @@ function createServer(handlers, options = { port: 8080 }) {
 
       const ret = handler.call(client, args, { server, clients, id, rpc })
 
-      if (ret instanceof Promise) {
+      if (isPromise(ret)) {
         ret.then(result => {
           if (!hadClientId) {
             if (_.has(client, 'clientId')) {
